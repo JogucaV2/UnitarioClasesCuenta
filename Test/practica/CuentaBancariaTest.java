@@ -1,5 +1,7 @@
 package practica;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +16,15 @@ class CuentaBancariaTest {
         cuenta = new CuentaBancaria("Ana Garcia", 1000);
         System.out.println("Instancia de CuentaBancaria creada para cada test");
 
+    }
+
+    @BeforeAll
+    static void beforeAll() {
+        System.out.println("Iniciando pruebas de CuentaBancaria");
+    }
+    @AfterAll
+    static void afterAll() {
+        System.out.println("Pruebas de CuentaBancaria finalizadas");
     }
 
     @Test
@@ -112,10 +123,16 @@ class CuentaBancariaTest {
         cuenta.setSaldo(3);
         assertEquals(0, cuenta.aplicarComisionMensual());
         assertEquals(0, cuenta.getSaldo());
+        cuenta.setSaldo(8000);
+        assertEquals(8000, cuenta.aplicarComisionMensual());
+        assertEquals(8000, cuenta.getSaldo());
+
         cuenta.setSaldo(3000);
+
         cuenta.setBloqueada(true);
         assertEquals(3000, cuenta.aplicarComisionMensual());
         assertEquals(3000, cuenta.getSaldo());
+
     }
 
 
