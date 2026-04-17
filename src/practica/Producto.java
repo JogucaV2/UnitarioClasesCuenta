@@ -19,6 +19,7 @@ public class Producto {
         if (nombre != null && !nombre.isBlank()) {
             this.nombre = nombre;
         }
+        //prueba1
     }
 
     public double getPrecio() {
