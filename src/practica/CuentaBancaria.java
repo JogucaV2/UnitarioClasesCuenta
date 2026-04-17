@@ -79,7 +79,6 @@ public class CuentaBancaria {
         }
         return saldo;
     }
-
     public int movimientosValidos(int[] importes) {
         if (importes == null) {
             return 0;
